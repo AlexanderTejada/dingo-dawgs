@@ -1,0 +1,460 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Shalbie";
+  src: url("/fonts/Shalbie\ Free\ Trial.ttf") format("woff2"),
+    url("/fonts/Shalbie\ Free\ Trial.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --yellow: #fed330;
+  --red: #e74c3c;
+  --white: #fff;
+  --black: #222;
+  --light-color: #777;
+  --border: 0.2rem solid var(--black);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+*::selection {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+::-webkit-scrollbar {
+  height: 1rem;
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--yellow);
+  cursor: pointer;
+}
+
+/*====================================== Navbar Styles ================================*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-family: "Shalbie", sans-serif;
+}
+.nav-links a:hover {
+  color: #f8b627;
+}
+.navbar-title {
+  position: relative;
+  left: -10%;
+  transform: translateX(50%);
+  text-align: center;
+}
+
+.navbar-title h1 {
+  margin: 0;
+  font-family: "Shalbie", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 100;
+  color: #f8b627;
+}
+
+.navbar-title p {
+  font-family: "Shalbie", sans-serif;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #f6ab3e;
+}
+
+.order-now-btn {
+  padding: 10px 20px;
+  font-size: 1.9rem;
+  text-decoration: none;
+  border-radius: 50px;
+  margin: 10px;
+  font-family: "Shalbie", sans-serif;
+  font-weight: 100;
+  background-color: #d1322e;
+  color: rgb(0, 0, 0);
+  border: 2px solid #710000;
+  transition: background-color 0.3s ease;
+}
+
+.order-now-btn:hover {
+  background-color: #e63e00;
+}
+/*================================ Mobile Navbar Styles ============================================0*/
+.icon-menu-open,
+.icon-menu-close {
+  order: 3;
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 20;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.icon-menu-close {
+  display: none;
+}
+
+.nav-links.mobile-active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 19;
+}
+
+.nav-links.mobile-active a {
+  font-size: 2rem;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .nav-links {
+    font-size: 1rem;
+  }
+
+  .navbar-title h1 {
+    font-size: 1.5rem;
+  }
+
+  .navbar-title p {
+    font-size: 1rem;
+  }
+  .navbar-title {
+    left: -3.5rem;
+  }
+}
+@media (max-width: 650px) {
+  .navbar {
+    padding: 10px 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon-menu-open {
+    padding-left: 2rem;
+    display: block;
+    order: 3;
+  }
+
+  .navbar-title {
+    position: static;
+    transform: none;
+    text-align: left;
+    margin-right: auto;
+    order: 1;
+  }
+
+  .order-now-btn {
+    position: static;
+    transform: none;
+    text-align: center;
+    margin-right: auto;
+    order: 2;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/*=============================header============================================*/
+.header {
+  height: 100vh;
+  background: url("/assets/fondocontact.jpeg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.pattern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+        circle,
+        rgba(68, 66, 66, 0.7) 10%,
+        transparent 31%
+      )
+      0 0,
+    radial-gradient(circle, rgba(68, 66, 66, 0.7) 10%, transparent 31%) 10px
+      10px;
+  background-size: 7px 7px;
+  z-index: -1;
+}
+.center-logo {
+  width: 350px;
+  height: 350px;
+  background-color: #fbb040d4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  padding: 20px;
+}
+
+.center-logo img {
+  max-width: 60%;
+  max-height: 60%;
+}
+
+.arrow {
+  position: absolute;
+  left: 27%;
+  bottom: -10%;
+  transform: rotate(5deg);
+}
+
+.arrow img {
+  background-color: transparent;
+  width: 12rem;
+  height: 12rem;
+}
+
+/*======================================= Footer==========================================*/
+footer {
+  background-color: #000000;
+  padding: 40px 0;
+  color: #fff;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  margin-top: 1rem;
+}
+
+.footer-logo img {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  max-width: 250px;
+  margin: 10px 0;
+  color: var(--light-color);
+  font-size: 1rem;
+}
+.footer-section iframe {
+  margin-top: -2.5rem;
+  width: 30rem;
+  height: 20rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  filter: grayscale(100%) contrast(100%);
+}
+
+.footer-section h4 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.footer-section p {
+  margin: 10px 0;
+  color: var(--light-color);
+  font-size: 1rem;
+}
+
+.social-icon {
+  margin-top: 1rem;
+}
+
+.social-icon ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon ul li a {
+  width: 2.3rem;
+  height: 2.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.3rem;
+  border: 2px solid #fff;
+}
+
+.social-icon ul li a:hover {
+  background-color: #fff;
+  color: #000000;
+}
+
+/*=============================MEDIA QUERIES===================================*/
+@media (max-width: 1024px) {
+  .center-logo {
+    width: 350px;
+    height: 350px;
+  }
+  .arrow {
+    display: none;
+  }
+
+  .center-logo img {
+    max-width: 70%;
+    max-height: 70%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section h4 {
+    font-size: 1.5rem;
+    margin: 1.5rem;
+  }
+  .social-icon ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-section iframe {
+    margin-top: 1rem;
+  }
+  .footer-logo,
+  .footer-section {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .order-now-btn {
+    font-size: 1rem;
+  }
+  .center-logo {
+    width: 250px;
+    height: 250px;
+  }
+  .navbar-title {
+    left: -3.5rem;
+  }
+  .footer-section h4 {
+    font-size: 1.5rem;
+    margin: 1.5rem;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-icon ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-logo img {
+    max-width: 120px;
+  }
+
+  .footer-section iframe {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: 50vh;
+  }
+  .center-logo {
+    margin-top: 11rem;
+    width: 150px;
+    height: 150px;
+  }
+
+  .center-logo img {
+    max-width: 60%;
+    max-height: 60%;
+  }
+
+  .footer-logo p,
+  .footer-section p {
+    font-size: 0.8rem;
+  }
+  .footer-section iframe {
+    margin-top: 1rem;
+    width: 23rem;
+    height: 18rem;
+  }
+
+  .footer-section h4 {
+    font-size: 1.5rem;
+    margin: 1.5rem;
+  }
+
+  .social-icon ul li a {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.9rem;
+  }
+}

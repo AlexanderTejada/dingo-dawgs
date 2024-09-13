@@ -1,0 +1,451 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ==================================Fuentes =======================================*/
+@font-face {
+  font-family: "Shalbie";
+  src: url("/fonts/Shalbie\ Free\ Trial.ttf") format("woff2"),
+    url("/fonts/Shalbie\ Free\ Trial.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*=============================== Variables de colores==================================*/
+:root {
+  --yellow: #fed330;
+  --red: #e74c3c;
+  --white: #fff;
+  --black: #222;
+  --light-color: #777;
+  --border: 0.2rem solid var(--black);
+}
+
+/*====================================== Reset y estilos base ==============================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+/*==================================== Selección de texto ===============================================*/
+*::selection {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+/* ===============================Barra de desplazamiento ======================================*/
+::-webkit-scrollbar {
+  height: 1rem;
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--yellow);
+  cursor: pointer;
+}
+
+/* =================================Navbar ======================================*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: #0000007d;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-family: "Shalbie", sans-serif;
+}
+.nav-links a:hover {
+  color: #f8b627;
+}
+.navbar-title {
+  position: relative;
+  left: -10%;
+  transform: translateX(50%);
+  text-align: center;
+}
+
+.navbar-title h1 {
+  margin: 0;
+  font-family: "Shalbie", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 100;
+  color: #f8b627;
+}
+
+.navbar-title p {
+  font-family: "Shalbie", sans-serif;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #f6ab3e;
+}
+.order-now-btn {
+  padding: 10px 20px;
+  font-size: 1.9rem;
+  text-decoration: none;
+  border-radius: 50px;
+  margin: 10px;
+  font-family: "Shalbie", sans-serif;
+  font-weight: 100;
+  background-color: #d1322e;
+  color: rgb(0, 0, 0);
+  border: 2px solid #710000;
+  transition: background-color 0.3s ease;
+}
+
+.order-now-btn:hover {
+  background-color: #e63e00;
+}
+
+/*================================ Mobile Navbar Styles ============================================0*/
+.icon-menu-open,
+.icon-menu-close {
+  order: 3;
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 20;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.icon-menu-close {
+  display: none;
+}
+
+.nav-links.mobile-active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 19;
+}
+
+.nav-links.mobile-active a {
+  font-size: 2rem;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .nav-links {
+    font-size: 1rem;
+  }
+
+  .navbar-title h1 {
+    font-size: 1.5rem;
+  }
+
+  .navbar-title p {
+    font-size: 1rem;
+  }
+  .navbar-title {
+    left: -3.5rem;
+  }
+}
+@media (max-width: 650px) {
+  .navbar {
+    padding: 10px 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon-menu-open {
+    padding-left: 2rem;
+    display: block;
+    order: 3;
+  }
+  .order-now-btn {
+    font-size: 1rem;
+  }
+
+  .navbar-title {
+    position: static;
+    transform: none;
+    text-align: left;
+    margin-right: auto;
+    order: 1;
+  }
+
+  .order-now-btn {
+    position: static;
+    transform: none;
+    text-align: center;
+    margin-right: auto;
+    order: 2;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/*========================================card=============================================================*/
+.products {
+  position: relative;
+  padding: 6rem 0;
+  text-align: center;
+  width: 100%;
+  height: 105rem;
+  background: radial-gradient(circle, rgb(68, 66, 66) 10%, transparent 11%) 0 0,
+    radial-gradient(circle, rgb(68, 66, 66) 10%, transparent 11%) 10px 10px;
+  background-size: 7px 7px;
+  background-color: #fff;
+}
+
+.img-hotdog-right-1,
+.img-hotdog-right-2 {
+  position: absolute;
+  z-index: 10;
+}
+
+.img-hotdog-right-1 {
+  top: 35rem;
+  right: -18rem;
+  width: 25rem;
+  height: auto;
+  transform: translateY(10%);
+}
+
+.img-hotdog-right-2 {
+  bottom: 20rem;
+  left: -18rem;
+  width: 25rem;
+  height: auto;
+  transform: translateY(-10%);
+}
+
+.products .title-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 40%;
+  margin-top: 7rem;
+}
+
+.products .menu-title {
+  font-size: 3rem;
+  font-weight: 200;
+  font-family: "Shalbie", sans-serif;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.products .box-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem 10%;
+}
+
+.products .box {
+  background-color: #fff;
+  border: 2px solid #000000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  position: relative;
+}
+
+.products .box:hover {
+  transform: translateY(-5px);
+}
+
+.products .card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.products .card-image {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.products .card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.products .card-title {
+  font-size: 1.5rem;
+  font-family: "Arial", sans-serif;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: justify;
+  text-indent: 0;
+}
+
+.products .card-content p {
+  font-size: 0.8rem;
+  text-align: justify;
+  text-indent: 0;
+  color: #000000;
+  margin-bottom: 2rem;
+}
+
+.products .card-button {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 50%;
+  color: #333;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.products .card-button:hover {
+  background-color: #f5a623;
+  color: #fff;
+}
+
+/*================================== Responsive Design ==================================*/
+
+@media (max-width: 1024px) {
+  .products {
+    height: auto;
+    padding: 5rem 0;
+  }
+
+  .img-hotdog-right-1,
+  .img-hotdog-right-2 {
+    display: none;
+  }
+
+  .products .title-image {
+    max-width: 50%;
+    margin-top: 5rem;
+  }
+
+  .products .menu-title {
+    font-size: 2.5rem;
+  }
+
+  .products .box-container {
+    grid-template-columns: 1fr;
+    padding: 1rem 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .products .title-image {
+    margin-top: 10rem;
+    max-width: 60%;
+  }
+
+  .products .menu-title {
+    font-size: 2rem;
+  }
+
+  .products .box-container {
+    padding: 1rem 2%;
+  }
+
+  .products .box {
+    padding: 0.5rem;
+  }
+
+  .products .card-title {
+    font-size: 1.2rem;
+  }
+
+  .products .card-content p {
+    font-size: 0.7rem;
+  }
+
+  .products .card-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .products .title-image {
+    max-width: 70%;
+  }
+
+  .products .menu-title {
+    font-size: 1.5rem;
+  }
+
+  .products .box {
+    padding: 0.3rem;
+  }
+
+  .products .card-title {
+    font-size: 1rem;
+  }
+
+  .products .card-content p {
+    font-size: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .products .card-button {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+  }
+}
